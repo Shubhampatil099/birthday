@@ -1,0 +1,256 @@
+Q1)You need to determine when to use implicit and explicit measures.
+
+A: Implicit measures can select from one of nine aggregations when placed in the Values well of a visual. Both Implicit and Explicit measures can be used as a Drillthrough field, to create quick measures, and with Field Parameters.
+
+
+q2)You have a Power BI Desktop semantic model that includes a table named Salesperson. The table includes a column named UPN. UPN contains the user principal name of the salesperson’s Microsoft Entra ID account.
+
+You need to ensure that each salesperson will only be able to see the rows in the Salesperson table where the UPN column value matches their User Principal Name.
+
+Which two actions should you perform? Each correct answer presents part of the solution.
+
+Ans: As part of setting up row-level security, it is necessary to create a role. In addition, it is necessary to add a DAX expression filter to the Salesperson table. This expression checks for a match between the salesperson's User Principal Name attribute and the value in the UPN column. If the two match, the salesperson is allowed to view the content of the corresponding row from the Salesperson table.
+
+
+Q3) You need to reduce the cardinality of a column in a Power BI semantic model.
+
+A column that has a lot of repeated values and a low number of distinct values will have a low cardinality. Reducing the number of distinct values reduces cardinality. Replacing nulls does not change the number of distinct values. A static prefix or suffix does not change cardinality.
+
+Q4)
+You need to reduce the size of a Power BI semantic model that contains two dimension tables named Date and Location, and one fact table named Temperatures. The Temperatures table contains the following fields:
+
+Reading Time (datetime)
+DateKey (date)
+LocationKey (whole number)
+
+Temp C (decimal)
+You have one row for every 5-minute interval for each location. The Temperatures table is related to the Date and Location dimensions by using many-to-one relationships.
+
+You need to reduce the cardinality of the table. The solution must ensure that the semantic model supports reports that analyze average temperature by hour and location.
+
+What two actions should you perform? Each correct answer presents part of the solution.
+
+aNSWER
+Creating a column that displays the hour is necessary to summarize by hour when there is no Time or Hour dimension. Summarizing the table by using the Group By functionality reduces the number of rows. Reporting requirements dictate that the aggregated temperature value should be an average. The table should be summarized by hour, DateKey, and LocationKey in order to support the required reports. Removing rows that occur exactly on the hour removes data and does not support the reporting requirements. Disabling the query load removes the table from the model completely.
+
+
+Q5)You plan to run Power BI Desktop Performance Analyzer.
+
+You need to ensure that the data engine cache will NOT impact the test results without restarting Power BI Desktop.
+
+What should you do first?
+
+aNS: DAX Studio, once connected to the data model, can be used to clear the data engine cache. The Clear Cache function can be invoked from DAX Studio, once you connect it to the data model. The Refresh Metadata function can be invoked from DAX Studio to update the metadata of the currently selected model. Adding a blank page to the .pbix file and selecting it is the first step in clearing the visual cache, not the data engine cache
+
+
+Q6)You plan to optimize the performance of Power BI Desktop queries against a remote data source.
+
+You need to disable the default behavior that automatically applies cross highlighting and filtering of visuals within the same report.
+
+Which option should you configure in Power BI Desktop?
+
+ANSWER: The Reduce number of queries sent by Query reduction setting disables the default behavior that automatically applies cross highlighting and filtering of visuals within the same report. The Slicers Query reduction settings allow you to instantly apply slicer changes and add an Apply button to each slicer. The Filters Query reduction settings allow you to instantly apply basic filter changes. The Persistent filters of Report settings allow you to prevent users from saving filters in the Power BI service.
+
+
+Q7)You decide to start using variables when creating DAX formulas.
+
+What are two benefits of using variables in DAX measures over using original expressions? Each correct answer presents a complete solution.
+
+ANSWER: Variable names are often shorter than the original expressions, and the final variable returned at the end of the measure will be more readable with variable names included. Variables cache the defined calculation, allowing it to be referenced multiple times without additional impacts from recalculations. The functions in DAX are universal, and there are no specific functions that can only be used within variables. The data source connection is set in the model and cannot be changed from within a DAX measure.
+
+Q8)You need to create a Power BI dashboard.
+
+Which tool should you use?
+
+The Power BI service provides support for creating Power BI dashboards. The Power BI mobile app can be used to view dashboards, but not to create them. Power BI Desktop does not provide support for creating Power BI dashboards. Power Query is a Microsoft Excel tool that is used for importing data, but not for creating dashboards.
+
+
+Q9)You need to create a dashboard from a published report in Power BI.
+
+Which option in the report should you use?
+ANSWER: The Pin visual option allows you to pin the visual to an existing dashboard or create a new one. The Copy visual as image option allows you to copy a visual as an image to Clipboard. The Export data option allows you to export data in the xlsx or csv formats, but not create a dashboard. The Spotlight option allows you to highlight a visual on the report page, but not create a dashboard.
+
+Q10)You plan to build a Power BI dashboard and set up alerts that will notify you when data presented in the visuals on the dashboard reach specific thresholds.
+
+Which three types of visuals support the alert functionality? Each correct answer presents a complete solution.
+
+ANSWER:
+Alerts are available with KPI visuals, gauges, and cards. Treemaps and waterfall visuals do not support alerts.
+
+Q11)You plan to certify a Power BI semantic model.
+
+You need to identify at which level the permissions to certify a semantic model are assigned.
+
+Which level should you identify?
+
+ANSWER: 
+
+
+Q12)
+You manage a Power BI workspace in shared capacity. The workspace contains a semantic model named DS1.
+
+You plan to schedule the refresh of DS1.
+
+What is the maximum number of data refreshes per day?
+
+ANSWER: The maximum number of refreshes per day for a Power BI workspace in a shared capacity is 8.
+
+Q13)Your company has multiple semantic models in Power BI workspaces, and users are confused about which model to use for reports.
+
+You want to indicate which semantic models are reliable.
+
+What action should you take?
+
+aNSER:Certifying semantic models ensures that users can easily identify and rely on authoritative models for their reports. Sharing links for each model does not address the need to differentiate between reliable and unreliable models. Promoting semantic models without distinguishing their reliability could lead to further confusion. Removing unreliable models risks losing valuable data and does not align with best practices for content management.
+
+
+Q14)Your organization uses Microsoft Power BI to analyze sales data. There is a report on regional sales performance insights in a workspace with multiple reports.
+
+You need to ensure only Sales team members have access to the sales performance report data.
+
+What action should you take?
+
+ANSWER:Setting up row-level security ensures that only Sales team members access the report by restricting data access based on user roles. Sharing a report link does not address the need for controlled access and allows unauthorized access. Sharing the report pbix file doesn't prevent it from being shared with unauthorized people, and is not a good sharing practice in general. Granting access to all users and relying on individual permissions does not provide sufficient control and risks unauthorized access.
+
+Q15)
+You have a row level security role (RLS) in a dataset called User Security Group. This role needs to filter a RLS table that contains a column with the emails of users in the following format:
+
+name@company.com
+
+Which function should be used in the code for the RLS role to match the users Microsoft Entra ID login credentials with the emails contained in the RLS table column?
+
+ANSWER:
+USERPRINCIPALNAME would return the Microsoft Entra ID login in the format of “name@company.com”. USEROBJECTID would not return the Microsoft Entra ID login in the same format. NAMEOF is a function that is used for Field Parameters. TREATAS is a function related to column filtering.
+
+Q16)
+Your organization uses Microsoft Power BI to analyze sales data. The sales team is concerned about unauthorized users exporting sensitive data.
+
+You need to ensure that only authorized users can export sensitive data from Power BI reports.
+
+What should you do?
+
+ANSWER:
+Applying sensitivity labels ensures that export restrictions are enforced based on user-specific permissions, directly addressing the concern of unauthorized data export. Assigning Contributor roles provides build permissions but lacks mechanisms to restrict data export, potentially increasing access rather than limiting it. Disabling report sharing limits collaboration but does not specifically address export restrictions, making it an overly restrictive solution. Enabling DirectQuery mode facilitates real-time data access but does not offer any functionality to manage or restrict data export, rendering it irrelevant to the stated objective.
+
+Q17)You plan to get data from flat files for a Power BI semantic model.
+
+You need to select a location to store the files.
+
+Which location requires an on-premises data gateway?
+
+ANSWER:The shared folder on a local network will require a gateway as it is not available to the internet. SharePoint Online, OneDrive, and OneDrive for Business all can be refreshed as cloud data sources without a gateway.
+
+Q18)You need to make changes to your data sources.
+
+Which three changes are supported by the Data source settings in the Power Query Editor? Each correct answer presents a complete solution.
+ANSWER:The Data Source Settings in the Power Query interface supports editing permissions, clearing permissions, and modifying the path of the data source file. Any structural changes to a file, such as adding, removing, or renaming columns are not supported by the Data Source Settings in the Power Query interface.
+
+
+Q19)You have a Power BI semantic model that gets data from a table in a SQL Server database.
+
+From which view in Power BI Desktop can you modify the storage mode of the table?
+ANSWER:The storage mode of a table in Power BI Desktop is configurable from the Model view, not the Data or Report view. Page view is an option available from within the Report view.
+
+Q20)You plan to add data to Power BI Desktop from a new data source. You are evaluating whether you should use the DirectQuery storage mode or the Import storage mode.
+
+What are two benefits of using DirectQuery instead of Import? Each correct answer presents a complete solution.
+
+ANSWER:DirectQuery minimizes local disk space use and eliminates the need for data refresh. DirectQuery is not fully supported with the Q&A and Quick Insights Power BI services. Both the DirectQuery and Import storage modes support per table configuration.
+
+Q21)You plan to publish a semantic model from Power BI Desktop.
+
+You need to ensure that your data source server name can be changed after the semantic model has been published to the Power BI Service.
+
+Which two actions should you perform? Each correct answer presents part of the solution.
+ANSWER:?
+
+
+Q22)You plan to publish a semantic model from Power BI Desktop.
+
+You need to ensure that your data source server name can be changed after the semantic model has been published to the Power BI Service.
+
+Which two actions should you perform? Each correct answer presents part of the solution.
+ANSWER:A parameter is the only part of a query that can be updated or changed in the Power BI service, by accessing the dataset settings. Updating the server source to use a parameter will update all existing queries pointing to the current server to instead use a parameter with that server name. This parameter can now be changed once this dataset is published to the Power BI service.
+
+Q23)From Power BI Desktop, you create a data source by importing an Excel file that contains 10,000 rows.
+
+You plan to identify data anomalies within the data source.
+
+You need to ensure that column distribution considers all rows in the Excel file.
+
+What should you do?
+ANSWER:
+By default, Power BI uses the top 1,000 rows for profiling. To ensure that column distribution considers all rows in the Excel file, you need to modify the Power Query Editor profiling status setting. The Power Query Editor settings, Advanced settings, and Permissions settings have no bearing on the profiling characteristics.
+
+Q24)From Power BI Desktop, you create a data source by importing an Excel file.
+
+You plan to identify data anomalies within the data source.
+
+Which interface should you use to display the column quality feature and column distribution graph?
+
+ANSWER:
+Power Query Editor provides the ability to display the column distribution and column quality graphs. Data view provides access to data within a dataset. Model view provides access to the data model of a dataset. Advanced Editor of Power Query Editor provides the ability to work with the M code used for shaping data in Power Query Editor.
+
+Q25)
+You have a query that retrieves data from a table that contains more than 8,000 rows of data.
+
+In Power Query Editor, you notice that the column statistics for each column shows a count of exactly 1,000.
+
+You need to ensure that the column statistics for each column shows the statistics based on all rows that are returned by the query.
+
+What should you do?
+ANSWER:
+Selecting column profiling for the entire dataset will change the column profiler to analyze the entire query dataset. Adding a Table.Buffer applied step will only cache the entire query in memory during refresh. The query load type in the model will not impact how many rows are used by the column profiler. Using a Top N row count applied step or applying a parameter will not change how the column statistics feature calculates.
+
+Q26)You import an Excel file into Power BI Desktop and begin to analyze the data in Power Query Editor.
+
+You need to identify outliers in a text column within the data source.
+
+Which information should you use from Power Query Editor?
+
+ANSWER:
+The top and bottom entries in Value distribution identify outliers, which appear, respectively, the greatest and the smallest number of times in that column. The value of the Distinct entry in Column statistics indicates the total count of different values. The value of the Unique entry in Column statistics indicates the total count of different values that appear only once. The min and max values in the Column profile of a text column designate the entries which appear, respectively, first and last in alphabetical order.
+
+Q27)
+An organization uses Microsoft Power BI to analyze sales data stored in a relational database with tables for orders, products, and customers.
+
+You need to run more efficient queries without affecting connectivity mode.
+
+What action should you take?
+ANSWER:Adding calculated columns increases model complexity, leading to slower query execution and degraded performance. Disabling slicer interactions reduces the number of queries generated by user actions but does not directly improve query efficiency. Enabling Assume Referential Integrity improves query efficiency by allowing INNER JOINs instead of OUTER JOINs, optimizing DirectQuery performance. Switching to Import mode changes the data connectivity method entirely, bypassing DirectQuery rather than optimizing its performance.
+
+Q28)
+You have a Power BI data source that contains the following tables:
+
+ProductCategory: Lists the product category ID and category name
+ProductSubcategory: Lists the product subcategory ID, subcategory name, and the related category ID
+ProductList: Lists the product ID, name, and subcategory ID
+You need to optimize the data to create a dimension for use in a star schema data model.
+
+How should the tables be transformed before loading into the model?
+A star schema should have a single table for each dimension linking directly to fact table. Using the merge command to create a single product table achieves this objective	
+
+Q29)
+You have a fact table that contains sales data.
+
+The fact table includes a SalesDate column formatted as a Date data type. Auto date/time setting is disabled in both global and current file options.
+
+You load the fact table into Power BI Desktop.
+
+You need to ensure that you are able to analyze data on a yearly, quarterly, monthly, weekly, and daily basis. Your solution must minimize the model size and administrative effort.
+
+What should you do?
+ANSWER:
+Adding a separate date dimension table that includes year, month, and week information is the optimal approach which provides the required functionality, while minimizing the model size and administrative effort. Adding a year, month, and week columns to the fact table would increase the amount of administrative effort. Enabling the Auto date/time global or current file option would increase the model size. In addition, it would not provide the ability to describe weekly time periods (only year, quarter, month, and day).
+
+Q30)You have a Power BI report that connects to a public data feed.
+
+Users report that the report loads slowly.
+
+You identify that the slow performance is caused by a query in the report.
+
+You need to reduce the load time.
+
+Where should you configure caching for the query?
+
+ANSWER:Power BI dataflows support query caching by persisting the results of data retrieval and transformation in the Power BI service, which prevents the query from being re-executed against the public data source every time data is loaded and improves overall performance. Power BI Desktop does not provide source-level query caching beyond the imported model, reports do not support query-level caching because they only consume model data, and the Power BI service itself does not offer a standalone mechanism to cache external source queries unless the data is implemented through a dataflow.
