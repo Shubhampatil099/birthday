@@ -1,3 +1,5 @@
+New
+
 Q1)You need to determine when to use implicit and explicit measures.
 
 A: Implicit measures can select from one of nine aggregations when placed in the Values well of a visual. Both Implicit and Explicit measures can be used as a Drillthrough field, to create quick measures, and with Field Parameters.
